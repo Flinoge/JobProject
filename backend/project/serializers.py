@@ -1,12 +1,7 @@
 from rest_framework import serializers
-from .models import ExampleModel, LinkExample
+from .models import IdeasModel
 
-class ExampleModelSerializer(serializers.HyperlinkedModelSerializer):
+class IdeasSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = ExampleModel
-        fields = ('__all__')
-
-class LinkExampleSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = LinkExample
+        model = IdeasModel
         fields = ('__all__')
