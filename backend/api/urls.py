@@ -4,6 +4,9 @@ from . import views
 
 router = routers.DefaultRouter()
 router.register(r'ideas', views.IdeasViewSet)
+router.register(r'players', views.PlayersViewSet)
+router.register(r'game', views.GameViewSet)
+router.register(r'winner', views.WinnerViewSet)
 
 urlpatterns = [
     url(r'^', include(router.urls)),

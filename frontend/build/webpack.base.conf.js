@@ -52,6 +52,12 @@ module.exports = {
         exclude: /node_modules/
       },
       {
+        test: /\.exec\.js$/,
+        use: [ 'script-loader' ],
+        include: projectRoot,
+        exclude: /node_modules/
+      },
+      {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {

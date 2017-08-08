@@ -16,6 +16,8 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
+CSRF_COOKIE_SECURE = False
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
@@ -41,12 +43,10 @@ INSTALLED_APPS = [
     'rest_framework',
     'project',
     'backend',
-    'api',
-    'corsheaders'
+    'api'
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -124,10 +124,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
-
-CORS_ORIGIN_WHITELIST = (
-    'localhost',
-    'localhost:8080'
-)
-
-CORS_ORIGIN_ALLOW_ALL = True

@@ -8,20 +8,36 @@ function load (component) {
 }
 
 export default new VueRouter({
-  /*
-   * NOTE! VueRouter "history" mode DOESN'T works for Cordova builds,
-   * it is only to be used only for websites.
-   *
-   * If you decide to go with "history" mode, please also open /config/index.js
-   * and set "build.publicPath" to something other than an empty string.
-   * Example: '/' instead of current ''
-   *
-   * If switching back to default "hash" mode, don't forget to set the
-   * build publicPath back to '' so Cordova builds work again.
-   */
-
   routes: [
-    { path: '/', component: load('Index') }, // Default
-    { path: '*', component: load('Error404') } // Not found
+    {
+      path: '/dashboard',
+      name: 'Index',
+      component: load('containers/Index'),
+      children: [
+        {
+          path: '/game',
+          name: 'Game',
+          component: load('views/Game')
+        }
+      ]
+    },
+    {
+      path: '/',
+      name: 'Login',
+      component: load('containers/Login'),
+      children: [
+        {
+          path: '/',
+          name: 'Login',
+          component: load('views/Login')
+        },
+        {
+          path: '/signup',
+          name: 'Signup',
+          component: load('views/Signup')
+        }
+      ]
+    },
+    { path: '*', component: load('Error404') }
   ]
 })
